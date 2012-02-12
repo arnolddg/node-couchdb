@@ -289,11 +289,11 @@ Wrapper for [GET /db-name/\_design/design-name/\_list/list-name/view-name](http:
 
 ### db.update(design, updatehandler, [docId], [query], [cb])
 
-Wrapper for [PUT /db-name/\_design/design-name/\_update/updatehandler-name/docId]?\<field\>=\<value\>(http://wiki.apache.org/couchdb/Document_Update_Handlers). Updates document identified by the given docId for the given `design` and `update` with the fields defined in the query.
+Wrapper for [PUT /db-name/\_design/design-name/\_update/updatehandler-name/docId\[?\<field\>=\<value\>\]](http://wiki.apache.org/couchdb/Document_Update_Handlers). Updates document identified by the given docId for the given `design` and `update` with the fields defined in the query.
 If docId is omitted (e.g. by passing null as the docId) the updatehandler can choose to provide one (e.g.
 req.uuid provided by couchdb).
 
-Note: updatehandlers are supposed to return valid json.
+Note: updatehandlers should return valid json (in the second element of the tuple) since node-couchdb expects that.
 	
 ### db.changes([query])
 
