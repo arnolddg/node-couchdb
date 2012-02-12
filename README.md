@@ -287,6 +287,14 @@ Wrapper for [GET /db-name/\_design/design-name/\_view/view-name](http://wiki.apa
 
 Wrapper for [GET /db-name/\_design/design-name/\_list/list-name/view-name](http://wiki.apache.org/couchdb/Formatting_with_Show_and_List#Listing_Views_with_CouchDB_0.10_and_later). Fetches all documents for the given `design` and `view` with the specified `query` options.
 
+### db.update(design, updatehandler, [docId], [query], [cb])
+
+Wrapper for [PUT /db-name/\_design/design-name/\_update/updatehandler-name/docId]?<field>=<value>(http://wiki.apache.org/couchdb/Document_Update_Handlers). Updates document identified by the given docId for the given `design` and `update` with the fields defined in the query.
+If docId is omitted (e.g. by passing null as the docId) the updatehandler can to provide one (e.g.
+req.uuid provided by couchdb).
+
+Note: updatehandlers are supposed to return valid json.
+	
 ### db.changes([query])
 
 Wrapper for [GET /db-name/\_changes](http://wiki.apache.org/couchdb/HTTP_database_API#Changes). This can be used for long-polling or one-time retrieval from the changes feed. If you want to get a continuous stream of changes, use the `db.changesStream()` function instead.

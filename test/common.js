@@ -6,7 +6,7 @@ global.couchdb = require('../lib/couchdb');
 global.assert = require('assert');
 global.checkCallbacks = function(callbacks) {
   for (var k in callbacks) {
-    assert.ok(callbacks[k], 'Callback '+k+' fired');
+    assert.ok(callbacks[k], 'Callback '+k+' not fired');
   }
 };
 
